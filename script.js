@@ -8,6 +8,18 @@ if (document.addEventListener) {
 	document.addEventListener("mousewheel", MouseWheelHandler, false);
 }
 
+var nextTriangle = document.getElementById('next-triangle');
+nextTriangle.addEventListener("click", triangleWaypointAdvance, false);
+
+
+
+function triangleWaypointAdvance () {
+	scrolled+=100;
+	console.log(scrolled);
+	updateWaypoints();
+
+}
+
 
 var waypoints = document.getElementsByClassName('waypoint');
 for (i = 0; i < waypoints.length; i++) {
@@ -20,7 +32,7 @@ function updateWaypoints() {
 	fractionScrolled = scrolled / scrollTotal;
 
 	// 0 <= fractionScrolled <= 1, so *10 gives us 10; Math.floor rounds down
-	var whichWaypoint = Math.max(0, Math.floor(fractionScrolled * 10) - 1);
+	var whichWaypoint = Math.max(0, Math.floor(fractionScrolled * 10));
 
 	for (i = 0; i < 10; i++) {
 		// Notice we constructed our li#id names to make this easy
@@ -33,6 +45,28 @@ function updateWaypoints() {
 		else {
 			currentWaypoint.classList.remove('active-waypoint');
 		}
+
+		if (scrolled <400 || scrolled > 1000){
+		document.getElementById('Ah-ah').style.display = 'none';
+		document.getElementById('Oh-yeah').style.display = 'none';
+		document.getElementById('Woo-oo').style.display = 'none';	
+	}
+
+		if (scrolled >= 400 && scrolled < 600){
+		document.getElementById('Ah-ah').style.display = 'inline-block';
+		document.getElementById('Oh-yeah').style.display = 'none';
+		document.getElementById('Woo-oo').style.display = 'none';	
+	}
+	if (scrolled >= 600 && scrolled < 800){
+		document.getElementById('Oh-yeah').style.display = 'inline-block';
+		document.getElementById('Ah-ah').style.display = 'none';
+		document.getElementById('Woo-oo').style.display = 'none';
+	}
+	if (scrolled >= 800 && scrolled < 1000){
+		document.getElementById('Woo-oo').style.display = 'inline-block';
+		document.getElementById('Ah-ah').style.display = 'none';
+		document.getElementById('Oh-yeah').style.display = 'none';
+	}
 	}
 
 	// Seek to the proportional time of the 38s clip of Bey's "Countdown"
@@ -43,12 +77,13 @@ function waypointClickHandler(e) {
 	console.log('cilck');
 	for (i = 0; i < waypoints.length; i++) {
 		if (waypoints[i] === this) {
-			scrolled = (i+1)*100;
+			scrolled = i*100;
 			updateWaypoints();
 			console.log(scrolled);
 		}
 	}
 }
+
 
 
 function MouseWheelHandler(e) {

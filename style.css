@@ -88,6 +88,48 @@ http://codepen.io/chriscoyier/pen/lotjh */
 	border-top: 30.75px solid #555;
 }
 
+#Ah-ah {
+	display:none;
+	color: #EEE;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2em;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.35em;
+	position: absolute;
+	left: 200px;
+	z-index: 99;
+
+}
+
+#Woo-oo {
+	display:none;
+	color: #EEE;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 3em;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.35em;
+	position: absolute;
+	left: 400px;
+	z-index: 99;
+
+}
+
+#Oh-yeah {
+	display:none;
+	color: #EEE;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 4em;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.35em;
+	position: absolute;
+	left: 200px;
+	z-index: 99;
+
+}
+
 /* DETAIL PANELS */
 aside {
 	width: 128px;
@@ -155,8 +197,6 @@ li div {
 }
 li div:hover {
 	background-color: yellow;
-	requestAnimationFrame(draw);
-	-webkit-requestAnimationFrame(draw);
 	transition: 500ms ease;
 	-webkit-transition: 500ms ease;
 	/* pulse */
