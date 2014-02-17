@@ -2,11 +2,19 @@ var scrollTotal = 1000;
 var scrolled = 0; // A variable to keep track of how far we've scrolled.
 var fractionScrolled = scrolled / scrollTotal;
 
-
 // You can read more about the mosuewheel event at https://developer.mozilla.org/en-US/docs/DOM/DOM_event_reference/mousewheel
 if (document.addEventListener) {
 	document.addEventListener("mousewheel", MouseWheelHandler, false);
 }
+
+
+Lobos.addEventListener('ended', function(){
+    console.log('video ended');
+   	document.getElementById('detail').style.top=20+'px';
+   	document.getElementById('detail').style.height=300+'px';
+   	document.getElementById('Oh-yeah').style.display = 'inline-block';
+});
+
 
 var nextTriangle = document.getElementById('next-triangle');
 nextTriangle.addEventListener("click", triangleWaypointAdvance, false);
@@ -46,7 +54,7 @@ function updateWaypoints() {
 			currentWaypoint.classList.remove('active-waypoint');
 		}
 
-		if (scrolled <400 || scrolled > 1000){
+		if (scrolled <400 || scrolled >= 900){
 		document.getElementById('Ah-ah').style.display = 'none';
 		document.getElementById('Oh-yeah').style.display = 'none';
 		document.getElementById('Woo-oo').style.display = 'none';	
@@ -62,7 +70,7 @@ function updateWaypoints() {
 		document.getElementById('Ah-ah').style.display = 'none';
 		document.getElementById('Woo-oo').style.display = 'none';
 	}
-	if (scrolled >= 800 && scrolled < 1000){
+	if (scrolled >= 800 && scrolled < 900){
 		document.getElementById('Woo-oo').style.display = 'inline-block';
 		document.getElementById('Ah-ah').style.display = 'none';
 		document.getElementById('Oh-yeah').style.display = 'none';
@@ -70,11 +78,11 @@ function updateWaypoints() {
 	}
 
 	// Seek to the proportional time of the 38s clip of Bey's "Countdown"
-	document.getElementById('Countdown').currentTime = fractionScrolled * 38.0;
+	document.getElementById('Lobos').currentTime = fractionScrolled * 203.0;
 }
 
 function waypointClickHandler(e) {
-	console.log('cilck');
+	console.log('click');
 	for (i = 0; i < waypoints.length; i++) {
 		if (waypoints[i] === this) {
 			scrolled = i*100;

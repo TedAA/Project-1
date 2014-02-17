@@ -61,6 +61,8 @@ video {
 
 	left: calc(50% - 320px / 2 - 128px * 1.5);
 	right: calc(50% - 320px / 2 - 128px * 1.5);
+
+	-webkit-transition: top 0.3s 0.1s ease-out;
 }
 
 /* Clever trick to make a triangle with CSS:
@@ -120,7 +122,7 @@ http://codepen.io/chriscoyier/pen/lotjh */
 	display:none;
 	color: #EEE;
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 4em;
+	font-size: 3.5em;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.35em;
@@ -135,6 +137,7 @@ aside {
 	width: 128px;
 	height: 23.3%;
 	position: absolute;
+
 }
 
 .right {
